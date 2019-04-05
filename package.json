@@ -12,11 +12,11 @@
     "react-scripts": "2.1.8"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts build && node .",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prod": "react-scripts build && node ."
+    "dev": "react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"
