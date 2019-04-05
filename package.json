@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.3",
-    "dayjs": "^1.8.12",
     "express": "^4.16.4",
     "moment": "^2.24.0",
     "react": "^16.8.6",
