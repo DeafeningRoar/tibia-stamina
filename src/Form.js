@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField'
 import moment from 'moment'
 import Typography from '@material-ui/core/Typography'
 import { Button } from '@material-ui/core'
+import Grid from '@material-ui/core/Grid'
 
 import { calculateTimeToFull } from './utils/calculateStamina'
 
@@ -40,38 +41,44 @@ class Form extends React.Component {
     return (
       <React.Fragment>
         <form className={classes.form} onSubmit={this.handleSubmit}>
-          <TextField
-            style={{ minWidth: '240px' }}
-            id="eventDate"
-            name="eventDate"
-            type="datetime-local"
-            label="Event Date"
-            required
-            value={this.state.eventDate}
-            onChange={this.handleChange}
-          />
-          <TextField
-            style={{ margin: '0 5%', maxWidth: '115px' }}
-            id="currentHours"
-            name="currentHours"
-            type="number"
-            label="Hours"
-            required
-            value={this.state.currentHours}
-            onChange={this.handleChange}
-            helperText="Your Current Stamina"
-          />
-          <TextField
-            style={{ maxWidth: '125px' }}
-            id="currentMinutes"
-            name="currentMinutes"
-            type="number"
-            label="Minutes"
-            required
-            value={this.state.currentMinutes}
-            onChange={this.handleChange}
-            helperText="Your Current Stamina"
-          />
+          <Grid alignItems="center" justify="center" container spacing={8}>
+            <Grid item style={{ height: '88px' }}>
+              <TextField
+                style={{ minWidth: '240px' }}
+                id="eventDate"
+                name="eventDate"
+                type="datetime-local"
+                label="Event Date"
+                required
+                value={this.state.eventDate}
+                onChange={this.handleChange}
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                style={{ marginRight: '20px', maxWidth: '110px' }}
+                id="currentHours"
+                name="currentHours"
+                type="number"
+                label="Hours"
+                required
+                value={this.state.currentHours}
+                onChange={this.handleChange}
+                helperText="Your Current Stamina"
+              />
+              <TextField
+                style={{ maxWidth: '110px' }}
+                id="currentMinutes"
+                name="currentMinutes"
+                type="number"
+                label="Minutes"
+                required
+                value={this.state.currentMinutes}
+                onChange={this.handleChange}
+                helperText="Your Current Stamina"
+              />
+            </Grid>
+          </Grid>
           <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
             Calculate
           </Button>
