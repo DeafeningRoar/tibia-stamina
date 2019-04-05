@@ -18,17 +18,12 @@ export const calculateTimeToFull = (
   const timeToFull =
     staminaToMinutes >= minutesAtReducedGainTime ? differenceFromFullAtReduced + 10 : minutesToReduced + 1210
 
-  const time = {}
-  time.days = timeToFull / (24 * 60) >= 1 ? Math.floor(timeToFull / (24 * 60)) : 0
-  time.hours = timeToFull - time.days * 24 * 60 > 0 ? Math.floor((timeToFull - time.days * 24 * 60) / 60) : 0
-  time.minutes =
-    timeToFull - (time.days * 24 * 60 + time.hours * 60) > 0 ? timeToFull - (time.days * 24 * 60 + time.hours * 60) : 0
-  const hasEnoughTime = minutesToEvent >= time.days * 24 * 60 + time.hours * 60 + time.minutes
+  const hasEnoughTime = minutesToEvent >= timeToFull
   if (!hasEnoughTime) return { message: 'There is not enough time to recover your stamina.', date: '' }
-  const logoutDate = moment(eventDate)
-    .subtract(time.days, 'days')
-    .subtract(time.hours, 'hours')
-    .subtract(time.minutes, 'minutes')
-    .format('DD-MM-YYYY - hh:mm a')
-  return { date: logoutDate }
+
+  return {
+    date: moment(eventDate)
+      .subtract(timeToFull, 'minutes')
+      .format('MM-DD-YYYY - hh:mm a')
+  }
 }
