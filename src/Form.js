@@ -83,12 +83,14 @@ class Form extends React.Component {
             Calculate
           </Button>
         </form>
-        <Typography color="secondary">Result date format is dd-mm-yyyy</Typography>
+        <Typography color="secondary" style={{ marginTop: '5px' }}>
+          *** Result date is mm-dd-yyyy
+        </Typography>
         <div style={{ width: '100%', textAlign: 'center', marginTop: '5%' }}>
           {date.length > 0 ? (
             <Typography style={{ fontSize: 'large' }}>{`To regenarate your stamina to 41:59 on ${moment(
               eventDate
-            ).format('DD.MM.YYYY - hh:mm a')}, you need to log out at ${date}.`}</Typography>
+            ).format('MM.DD.YYYY - hh:mm a')}, you need to log out at ${date}.`}</Typography>
           ) : (
             <Typography style={{ fontSize: 'large' }}>{message}</Typography>
           )}
