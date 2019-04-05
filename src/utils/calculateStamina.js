@@ -1,16 +1,8 @@
-import dayjs from 'dayjs'
 import moment from 'moment'
-
-const parseDate = date => {
-  return {
-    day: dayjs(date).format('DD/MM/YYYY'),
-    hour: dayjs(date).format('HH:mm')
-  }
-}
 
 export const calculateTimeToFull = (
   stamina = { currentHours: 0, currentMinutes: 0 },
-  eventDate = parseDate(new Date())
+  eventDate = moment().format()
 ) => {
   const { currentHours, currentMinutes } = stamina
   const minutesAtReducedGainTime = 40 * 60
