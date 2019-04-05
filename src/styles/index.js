@@ -11,7 +11,6 @@ export const styles = theme => ({
     }
   },
   paper: {
-    width: '100%',
     marginTop: theme.spacing.unit * 8,
     display: 'flex',
     flexDirection: 'column',
