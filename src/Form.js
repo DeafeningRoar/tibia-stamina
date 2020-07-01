@@ -1,12 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import TextField from '@material-ui/core/TextField'
-import moment from 'moment'
-import Typography from '@material-ui/core/Typography'
-import { Button } from '@material-ui/core'
-import Grid from '@material-ui/core/Grid'
+import React from 'react';
+import PropTypes from 'prop-types';
+import TextField from '@material-ui/core/TextField';
+import moment from 'moment';
+import Typography from '@material-ui/core/Typography';
+import { Button } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 
-import { calculateTimeToFull } from './utils/calculateStamina'
+import { calculateTimeToFull } from './utils/calculateStamina';
 
 class Form extends React.Component {
   state = {
@@ -14,30 +14,30 @@ class Form extends React.Component {
     currentMinutes: 0,
     currentHours: 0,
     date: '',
-    message: ''
-  }
+    message: '',
+  };
 
-  handleChange = event => {
-    const { name, value } = event.target
+  handleChange = (event) => {
+    const { name, value } = event.target;
     if (name === 'currentMinutes') {
-      value < 60 && value > -1 && this.setState({ [name]: value })
+      value < 60 && value > -1 && this.setState({ [name]: value });
     } else if (name === 'currentHours') {
-      value > -1 && this.setState({ [name]: value })
+      value > -1 && this.setState({ [name]: value });
     } else {
-      this.setState({ [name]: value })
+      this.setState({ [name]: value });
     }
-  }
+  };
 
-  handleSubmit = event => {
-    event.preventDefault()
-    const { currentHours, currentMinutes, eventDate } = this.state
-    const time = calculateTimeToFull({ currentHours, currentMinutes }, eventDate)
-    this.setState({ ...time })
-  }
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { currentHours, currentMinutes, eventDate } = this.state;
+    const time = calculateTimeToFull({ currentHours, currentMinutes }, eventDate);
+    this.setState({ ...time });
+  };
 
   render() {
-    const { classes } = this.props
-    const { date, message, eventDate } = this.state
+    const { classes } = this.props;
+    const { date, message, eventDate } = this.state;
     return (
       <React.Fragment>
         <form className={classes.form} onSubmit={this.handleSubmit}>
@@ -96,12 +96,12 @@ class Form extends React.Component {
           )}
         </div>
       </React.Fragment>
-    )
+    );
   }
 }
 
 Form.propTypes = {
-  classes: PropTypes.object.isRequired
-}
+  classes: PropTypes.object.isRequired,
+};
 
-export default Form
+export default Form;
